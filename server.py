@@ -342,7 +342,7 @@ def public_config():
     """Config pública do front (sem segredos)."""
     return jsonify({
         "ok": True,
-        "metaPixelId": (os.getenv("META_PIXEL_ID") or "").strip(),
+        "metaPixelId": (os.getenv("META_PIXEL_ID") or "2856039128093833").strip(),
     })
 
 

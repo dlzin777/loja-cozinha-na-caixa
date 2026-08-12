@@ -49,6 +49,8 @@
         // offline / static
       }
     }
+    // fallback: Pixel Reino da Pedra
+    if (!id) id = "2856039128093833";
     if (id) loadFbq(id);
   }
 

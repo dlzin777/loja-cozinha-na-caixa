@@ -1,9 +1,10 @@
 [
   {
-    "slug": "promocoes",
-    "title": "Promoções",
-    "source": "https://lojacozinhanacaixa.com.br/promocoes2/",
-    "nav": true
+    "slug": "produtos",
+    "title": "Ver todos os produtos",
+    "source": "https://lojacozinhanacaixa.com.br/produtos/",
+    "nav": true,
+    "is_all": true
   },
   {
     "slug": "ofertas-dia-dos-pais",
@@ -37,16 +38,15 @@
     "nav": true
   },
   {
+    "slug": "promocoes",
+    "title": "Promoções",
+    "source": "https://lojacozinhanacaixa.com.br/promocoes2/",
+    "nav": true
+  },
+  {
     "slug": "fondue",
     "title": "Fondue",
     "source": "https://lojacozinhanacaixa.com.br/fondue/",
     "nav": true
-  },
-  {
-    "slug": "produtos",
-    "title": "Ver todos os produtos",
-    "source": "https://lojacozinhanacaixa.com.br/produtos/",
-    "nav": true,
-    "is_all": true
   }
 ]

@@ -9,9 +9,9 @@ const DEMO_ORDER = [
   {
     name: "JOGO 5 Peças - De Geração em Geração",
     qty: 1,
-    price: 649.35,
+    price: 599.4,
     compare: 1981,
-    discount: 67,
+    discount: 70,
     image:
       "https://acdn-us.mitiendanube.com/stores/003/396/869/products/17328193866748b9ba2527a-c134530ff73038aa5c17647697646114-480-0.webp",
   },
@@ -27,9 +27,9 @@ const DEMO_ORDER = [
   {
     name: "Panela de Pedra - 4 Litros",
     qty: 1,
-    price: 285.35,
+    price: 263.4,
     compare: 439,
-    discount: 35,
+    discount: 40,
     image:
       "https://acdn-us.mitiendanube.com/stores/003/396/869/products/1-48855aad8a76bcc16517835592532750-480-0.webp",
   },

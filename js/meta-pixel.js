@@ -5,12 +5,12 @@
 (function () {
   const state = { ready: false, id: "" };
 
-  function loadFbq(pixelId) {
-    if (!pixelId || window.fbq) {
-      if (pixelId && window.fbq && !state.ready) {
-        state.id = pixelId;
-        state.ready = true;
-      }
+  function loadFbq(pixelId, { pageView = true } = {}) {
+    if (!pixelId) return;
+    // Já inicializado no <head> — só marca pronto (não duplica PageView)
+    if (window.fbq) {
+      state.id = pixelId;
+      state.ready = true;
       return;
     }
     !(function (f, b, e, v, n, t, s) {
@@ -31,27 +31,29 @@
     })(window, document, "script", "https://connect.facebook.net/en_US/fbevents.js");
 
     fbq("init", pixelId);
-    fbq("track", "PageView");
+    if (pageView) fbq("track", "PageView");
     state.id = pixelId;
     state.ready = true;
   }
 
   async function init() {
-    let id = (window.__META_PIXEL_ID__ || "").trim();
-    if (!id) {
-      try {
-        const res = await fetch("/api/config");
-        if (res.ok) {
-          const data = await res.json();
-          id = (data.metaPixelId || "").trim();
+    // ID oficial Reino da Pedra — inicia na hora (não depende da API)
+    let id = (window.__META_PIXEL_ID__ || "").trim() || "2856039128093833";
+    loadFbq(id, { pageView: !window.fbq });
+    try {
+      const res = await fetch("/api/config");
+      if (res.ok) {
+        const data = await res.json();
+        const fromApi = (data.metaPixelId || "").trim();
+        if (fromApi && fromApi !== state.id && !window.fbq) {
+          loadFbq(fromApi);
+        } else if (fromApi) {
+          state.id = fromApi;
         }
-      } catch {
-        // offline / static
       }
+    } catch {
+      // offline / static
     }
-    // fallback: Pixel Reino da Pedra
-    if (!id) id = "2856039128093833";
-    if (id) loadFbq(id);
   }
 
   function track(eventName, params, options) {

@@ -184,14 +184,14 @@ def security_headers(response, *, production: bool):
     response.headers["X-Frame-Options"] = "DENY"
     response.headers["Referrer-Policy"] = "strict-origin-when-cross-origin"
     response.headers["Permissions-Policy"] = "camera=(), microphone=(), geolocation=()"
-    # CSP: permite CSS/JS locais, Google Fonts, imagens CDN e QRCode CDN
+    # CSP: locais + fonts + QRCode CDN + Meta Pixel + ViaCEP
     response.headers["Content-Security-Policy"] = (
         "default-src 'self'; "
-        "script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; "
+        "script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://connect.facebook.net; "
         "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; "
         "font-src 'self' https://fonts.gstatic.com data:; "
         "img-src 'self' data: https: blob:; "
-        "connect-src 'self'; "
+        "connect-src 'self' https://www.facebook.com https://connect.facebook.net https://viacep.com.br; "
         "frame-ancestors 'none'; "
         "base-uri 'self'; "
         "form-action 'self'"

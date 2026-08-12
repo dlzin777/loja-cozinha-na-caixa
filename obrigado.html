@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pedido confirmado | Loja Cozinha na Caixa</title>
+  <title>Pedido confirmado | Reino da Pedra</title>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/css/auth.css" />
   <style>
@@ -12,7 +12,7 @@
       max-width: 520px;
       margin: 0 auto;
     }
-    .thanks h1 { color: #066677; margin-bottom: 8px; }
+    .thanks h1 { color: #000; margin-bottom: 8px; }
     .thanks .ok-icon {
       width: 72px; height: 72px; border-radius: 50%;
       background: #eaf7e8; color: #59ad36;
@@ -32,13 +32,41 @@
       <h1>Pagamento confirmado!</h1>
       <p>Obrigado pela compra. Seu Pix foi aprovado com sucesso.</p>
       <div class="code-box">Pedido: <span id="orderCode">—</span></div>
-      <p class="subtitle">Você também pode acompanhar o status em <a href="conta.html">Minha conta</a>.</p>
-      <a class="btn-auth" href="index.html" style="display:inline-block;width:auto;padding:13px 28px;text-decoration:none">Voltar à loja</a>
+      <p class="subtitle">Você também pode acompanhar o status em <a href="/conta.html">Minha conta</a>.</p>
+      <a class="btn-auth" href="/" style="display:inline-block;width:auto;padding:13px 28px;text-decoration:none">Voltar à loja</a>
     </div>
   </div>
+  <script src="/js/meta-pixel.js"></script>
   <script>
     const code = new URLSearchParams(location.search).get("code");
     if (code) document.getElementById("orderCode").textContent = code;
+
+    // Purchase — evita duplicar no F5
+    (async function firePurchase() {
+      if (!code) return;
+      const key = "meta_purchase_" + code;
+      if (sessionStorage.getItem(key) === "1") return;
+      let value = 0;
+      let items = [];
+      try {
+        const raw = localStorage.getItem("cnc-last-order");
+        if (raw) {
+          const order = JSON.parse(raw);
+          value = Number(order.total) || 0;
+          items = order.items || [];
+        }
+      } catch {}
+      // espera pixel carregar
+      for (let i = 0; i < 20; i++) {
+        if (window.MetaPixel && window.fbq) break;
+        await new Promise((r) => setTimeout(r, 100));
+      }
+      try {
+        window.MetaPixel?.purchase(code, value, items);
+        sessionStorage.setItem(key, "1");
+        localStorage.removeItem("cnc-last-order");
+      } catch {}
+    })();
   </script>
 </body>
 </html>

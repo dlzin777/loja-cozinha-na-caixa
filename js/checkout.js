@@ -443,6 +443,24 @@ async function createPixCharge() {
     state.orderCode = data.code;
     const copy = data.pix?.copy_paste || "";
 
+    try {
+      localStorage.setItem(
+        "cnc-last-order",
+        JSON.stringify({
+          code: data.code,
+          total: total(),
+          items: state.items.map((i) => ({
+            name: i.name,
+            url: i.url || i.name,
+            price: i.price,
+            qty: i.qty || 1,
+          })),
+        })
+      );
+    } catch {
+      /* ignore */
+    }
+
     document.getElementById("orderCode").textContent = data.code;
     document.getElementById("paidTotal").textContent = money(total());
     document.getElementById("pixCode").textContent = copy;
@@ -451,6 +469,11 @@ async function createPixCharge() {
     setStep("pix");
     renderQr(copy);
     startPolling(data.transaction_id);
+    try {
+      window.MetaPixel?.initiateCheckout(state.items, total());
+    } catch {
+      /* ignore */
+    }
     window.scrollTo({ top: 0, behavior: "smooth" });
   } catch (err) {
     btn.disabled = false;

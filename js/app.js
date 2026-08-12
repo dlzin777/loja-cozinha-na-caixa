@@ -157,6 +157,11 @@ function addToCart(url) {
   saveCart();
   renderCart();
   openCart(true);
+  try {
+    window.MetaPixel?.addToCart(product);
+  } catch {
+    /* ignore */
+  }
 }
 
 async function refreshAccountUI() {

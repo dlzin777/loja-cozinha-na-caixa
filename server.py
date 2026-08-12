@@ -337,6 +337,15 @@ def csrf():
     return jsonify({"ok": True, "csrf_token": ensure_csrf_token()})
 
 
+@app.get("/api/config")
+def public_config():
+    """Config pública do front (sem segredos)."""
+    return jsonify({
+        "ok": True,
+        "metaPixelId": (os.getenv("META_PIXEL_ID") or "").strip(),
+    })
+
+
 # ---------------------------------------------------------------------------
 # Auth
 # ---------------------------------------------------------------------------

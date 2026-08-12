@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Promoções | Loja Cozinha na Caixa</title>
-  <meta name="description" content="Compre online Promoções por R$99,00. Temos frigideira de pedra - com tampa - p, jogo 3 peças - cozinha de pedra e mais." />
+  <title>Promoções | Reino da Pedra</title>
+  <meta name="description" content="Panelas de pedra, jogos, churrasco, fondue e promoções — Reino da Pedra." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
@@ -39,8 +39,8 @@
         <button class="icon-btn" id="menuOpen" aria-label="Abrir menu">
           <svg viewBox="0 0 24 24"><path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z"/></svg>
         </button>
-        <form class="search-box" action="#" onsubmit="return false;">
-          <input type="search" placeholder="Buscar..." aria-label="Buscar" />
+        <form class="search-box" id="searchForm" action="#" onsubmit="return false;">
+          <input type="search" id="searchInput" placeholder="Buscar..." aria-label="Buscar" />
           <button type="submit" aria-label="Buscar">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
           </button>
@@ -55,7 +55,7 @@
       </a>
 
       <div class="header-right">
-        <a class="icon-btn util-pill account-link" id="accountLink" href="login.html">
+        <a class="icon-btn util-pill account-link" id="accountLink" href="/login.html">
           <svg viewBox="0 0 24 24"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8V22h19.2v-2.8c0-3.2-6.4-4.8-9.6-4.8z"/></svg>
           <span id="accountLabel">Entrar</span>
         </a>
@@ -68,47 +68,44 @@
     </div>
 
     <nav class="container nav-desktop" aria-label="Categorias">
-      <a href="https://lojacozinhanacaixa.com.br/produtos/">Ver todos os produtos</a>
-      <a class="featured" href="https://lojacozinhanacaixa.com.br/ofertas-dia-dos-pais/">Ofertas Dia dos Pais</a>
-      <a href="https://lojacozinhanacaixa.com.br/panelas-de-pressao/">Pressão</a>
-      <a href="https://lojacozinhanacaixa.com.br/jogos-de-panelas-de-pedra/">Jogos</a>
-      <a href="https://lojacozinhanacaixa.com.br/alca-de-cobre/">Panelas de Pedra</a>
-      <a href="https://lojacozinhanacaixa.com.br/churras/">Churrasco</a>
-      <a href="https://lojacozinhanacaixa.com.br/promocoes2/">Promoções</a>
-      <a href="https://lojacozinhanacaixa.com.br/fondue/">Fondue</a>
-      <a href="https://chat.whatsapp.com/LhKeVDOJ6o4CBgnUzmzYTc">Clube Panelovers</a>
+      <a href="/produtos" data-nav-slug="produtos">Ver todos os produtos</a>
+      <a class="featured" href="/ofertas-dia-dos-pais" data-nav-slug="ofertas-dia-dos-pais">Ofertas Dia dos Pais</a>
+      <a href="/panelas-de-pressao" data-nav-slug="panelas-de-pressao">Pressão</a>
+      <a href="/jogos" data-nav-slug="jogos">Jogos</a>
+      <a href="/panelas-de-pedra" data-nav-slug="panelas-de-pedra">Panelas de Pedra</a>
+      <a href="/churras" data-nav-slug="churras">Churrasco</a>
+      <a href="/promocoes" data-nav-slug="promocoes">Promoções</a>
+      <a href="/fondue" data-nav-slug="fondue">Fondue</a>
+      <a href="https://chat.whatsapp.com/LhkVDOj8o4CBgnUzmiY1tc" target="_blank" rel="noopener">Clube Panelovers</a>
     </nav>
   </header>
 
   <div class="menu-overlay" id="menuOverlay"></div>
   <aside class="mobile-menu" id="mobileMenu" aria-label="Menu">
     <h3>Categorias</h3>
-    <a href="https://lojacozinhanacaixa.com.br/produtos/">Ver todos os produtos</a>
-    <a href="https://lojacozinhanacaixa.com.br/ofertas-dia-dos-pais/">Ofertas Dia dos Pais</a>
-    <a href="https://lojacozinhanacaixa.com.br/promocoes2/">Promoções</a>
-    <a href="https://lojacozinhanacaixa.com.br/panelas-de-pressao/">Panelas de Pressão</a>
-    <a href="https://lojacozinhanacaixa.com.br/jogos-de-panelas-de-pedra/">Jogos de Panelas</a>
-    <a href="https://lojacozinhanacaixa.com.br/alca-de-cobre/">Panelas de Pedra</a>
-    <a href="https://lojacozinhanacaixa.com.br/formas-e-assadeiras/">Formas e Assadeiras</a>
-    <a href="https://lojacozinhanacaixa.com.br/churras/">Churrasco</a>
-    <a href="https://lojacozinhanacaixa.com.br/utensilios-de-cozinha/">Utensílios</a>
-    <a href="https://lojacozinhanacaixa.com.br/copos-e-canecas/">Para a Mesa</a>
-    <a href="https://lojacozinhanacaixa.com.br/valepresente/">Vale Presente</a>
-    <a href="https://wa.me/5519989007616">Monte seu JOGO</a>
-    <a href="https://lojacozinhanacaixa.com.br/fale-conosco/">Fale Conosco</a>
+    <a href="/produtos" data-nav-slug="produtos">Ver todos os produtos</a>
+    <a href="/ofertas-dia-dos-pais" data-nav-slug="ofertas-dia-dos-pais">Ofertas Dia dos Pais</a>
+    <a href="/promocoes" data-nav-slug="promocoes">Promoções</a>
+    <a href="/panelas-de-pressao" data-nav-slug="panelas-de-pressao">Panelas de Pressão</a>
+    <a href="/jogos" data-nav-slug="jogos">Jogos de Panelas</a>
+    <a href="/panelas-de-pedra" data-nav-slug="panelas-de-pedra">Panelas de Pedra</a>
+    <a href="/churras" data-nav-slug="churras">Churrasco</a>
+    <a href="/fondue" data-nav-slug="fondue">Fondue</a>
+    <a href="https://chat.whatsapp.com/LhkVDOj8o4CBgnUzmiY1tc" target="_blank" rel="noopener">Clube Panelovers</a>
+    <a href="https://wa.me/5519998243898" target="_blank" rel="noopener">WhatsApp / Fale Conosco</a>
   </aside>
 
   <main>
     <div class="container page-head">
-      <div class="breadcrumb">
-        <a href="https://lojacozinhanacaixa.com.br">Início</a> &gt; Promoções
+      <div class="breadcrumb" id="breadcrumb">
+        <a href="/">Início</a> &gt; Promoções
       </div>
-      <h1>Promoções</h1>
+      <h1 id="pageTitle">Promoções</h1>
     </div>
 
     <div class="container">
       <div class="toolbar">
-        <div class="count"><span id="productCount">17</span> produtos</div>
+        <div class="count"><span id="productCount">0</span> produtos</div>
         <div class="toolbar-controls">
           <label>
             <select id="sortSelect" aria-label="Ordenar por">
@@ -123,7 +120,7 @@
         </div>
       </div>
 
-      <section class="products-grid" id="productsGrid" aria-label="Lista de promoções"></section>
+      <section class="products-grid" id="productsGrid" aria-label="Lista de produtos"></section>
     </div>
   </main>
 
@@ -172,23 +169,23 @@
 
       <div class="footer-col">
         <h4>Institucional</h4>
-        <a href="https://lojacozinhanacaixa.com.br/apps/lp/sobre">Cozinha na Caixa é confiável?</a>
-        <a href="https://lojacozinhanacaixa.com.br/termos-de-compra-e-aceite/">Termos de Compra e Aceite</a>
-        <a href="https://lojacozinhanacaixa.com.br/fale-conosco/">Fale Conosco</a>
-        <a href="https://wa.me/5519998243898">WhatsApp</a>
+        <a href="https://wa.me/5519998243898" target="_blank" rel="noopener">Fale Conosco</a>
+        <a href="https://wa.me/5519998243898" target="_blank" rel="noopener">WhatsApp</a>
+        <a href="https://chat.whatsapp.com/LhkVDOj8o4CBgnUzmiY1tc" target="_blank" rel="noopener">Clube Panelovers</a>
       </div>
 
       <div class="footer-col">
         <h4>Categorias</h4>
-        <a href="https://lojacozinhanacaixa.com.br/promocoes2/">Promoções</a>
-        <a href="https://lojacozinhanacaixa.com.br/panelas-de-pressao/">Panelas de Pressão</a>
-        <a href="https://lojacozinhanacaixa.com.br/jogos-de-panelas-de-pedra/">Jogos de Panelas</a>
-        <a href="https://lojacozinhanacaixa.com.br/churras/">Churrasco</a>
-        <a href="https://lojacozinhanacaixa.com.br/valepresente/">Vale Presente</a>
+        <a href="/promocoes">Promoções</a>
+        <a href="/panelas-de-pressao">Panelas de Pressão</a>
+        <a href="/jogos">Jogos de Panelas</a>
+        <a href="/churras">Churrasco</a>
+        <a href="/fondue">Fondue</a>
+        <a href="/produtos">Ver todos</a>
       </div>
     </div>
     <div class="container footer-bottom">
-      © Loja Cozinha na Caixa | Panelas de Pedra Sabão — clone local da página de Promoções
+      © Reino da Pedra — Panelas de Pedra Sabão
     </div>
   </footer>
 

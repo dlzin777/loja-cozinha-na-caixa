@@ -292,7 +292,24 @@ def mark_order_paid(db: sqlite3.Connection, *, code: str | None = None, tx_id: s
 # ---------------------------------------------------------------------------
 
 @app.get("/")
-def home():
+@app.get("/promocoes")
+@app.get("/promocoes/")
+@app.get("/produtos")
+@app.get("/produtos/")
+@app.get("/ofertas-dia-dos-pais")
+@app.get("/ofertas-dia-dos-pais/")
+@app.get("/panelas-de-pressao")
+@app.get("/panelas-de-pressao/")
+@app.get("/jogos")
+@app.get("/jogos/")
+@app.get("/panelas-de-pedra")
+@app.get("/panelas-de-pedra/")
+@app.get("/churras")
+@app.get("/churras/")
+@app.get("/fondue")
+@app.get("/fondue/")
+def storefront_page():
+    """SPA da loja — categorias filtradas no front via pathname."""
     return send_from_directory(BASE_DIR, "index.html")
 
 

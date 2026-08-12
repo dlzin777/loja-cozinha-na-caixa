@@ -1,0 +1,52 @@
+[
+  {
+    "slug": "promocoes",
+    "title": "Promoções",
+    "source": "https://lojacozinhanacaixa.com.br/promocoes2/",
+    "nav": true
+  },
+  {
+    "slug": "ofertas-dia-dos-pais",
+    "title": "Ofertas Dia dos Pais",
+    "source": "https://lojacozinhanacaixa.com.br/ofertas-dia-dos-pais/",
+    "nav": true,
+    "featured": true
+  },
+  {
+    "slug": "panelas-de-pressao",
+    "title": "Pressão",
+    "source": "https://lojacozinhanacaixa.com.br/panelas-de-pressao/",
+    "nav": true
+  },
+  {
+    "slug": "jogos",
+    "title": "Jogos",
+    "source": "https://lojacozinhanacaixa.com.br/jogos-de-panelas-de-pedra/",
+    "nav": true
+  },
+  {
+    "slug": "panelas-de-pedra",
+    "title": "Panelas de Pedra",
+    "source": "https://lojacozinhanacaixa.com.br/alca-de-cobre/",
+    "nav": true
+  },
+  {
+    "slug": "churras",
+    "title": "Churrasco",
+    "source": "https://lojacozinhanacaixa.com.br/churras/",
+    "nav": true
+  },
+  {
+    "slug": "fondue",
+    "title": "Fondue",
+    "source": "https://lojacozinhanacaixa.com.br/fondue/",
+    "nav": true
+  },
+  {
+    "slug": "produtos",
+    "title": "Ver todos os produtos",
+    "source": "https://lojacozinhanacaixa.com.br/produtos/",
+    "nav": true,
+    "is_all": true
+  }
+]

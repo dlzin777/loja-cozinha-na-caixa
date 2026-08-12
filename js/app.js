@@ -136,7 +136,7 @@ async function refreshAccountUI() {
 }
 
 async function init() {
-  const res = await fetch("products.json");
+  const res = await fetch("/products.json");
   state.products = await res.json();
   renderProducts();
   renderCart();

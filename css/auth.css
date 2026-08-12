@@ -42,8 +42,9 @@ body.auth-page {
 }
 
 .auth-logo img {
-  height: 48px;
+  height: 88px;
   width: auto;
+  object-fit: contain;
 }
 
 .auth-card h1 {
@@ -141,7 +142,7 @@ body.auth-page {
   gap: 12px;
 }
 
-.account-header img { height: 42px; }
+.account-header img { height: 56px; width: auto; object-fit: contain; }
 .account-header a {
   color: var(--header);
   text-decoration: none;

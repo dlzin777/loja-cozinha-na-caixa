@@ -42,9 +42,10 @@ a {
 }
 
 .cko-logo img {
-  height: 48px;
+  height: 64px;
   width: auto;
   display: block;
+  object-fit: contain;
 }
 
 .cko-mobile-summary-toggle {

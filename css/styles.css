@@ -128,8 +128,10 @@ select {
 }
 
 .logo img {
-  height: 52px;
+  height: 72px;
   width: auto;
+  display: block;
+  object-fit: contain;
 }
 
 .icon-btn {
@@ -588,9 +590,10 @@ a.account-link {
 }
 
 .footer-logo {
-  height: 48px;
+  height: 64px;
   width: auto;
   margin-bottom: 14px;
+  object-fit: contain;
 }
 
 .socials {

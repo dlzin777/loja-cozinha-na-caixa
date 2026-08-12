@@ -7,13 +7,13 @@ const parsePrice = (str) =>
 /** Pedido demo (quando carrinho local estiver vazio) */
 const DEMO_ORDER = [
   {
-    name: "JOGO 3 Peças - Cozinha de Pedra",
+    name: "JOGO 5 Peças - De Geração em Geração",
     qty: 1,
-    price: 271.91,
-    compare: 797,
-    discount: 66,
+    price: 649.35,
+    compare: 1981,
+    discount: 67,
     image:
-      "https://acdn-us.mitiendanube.com/stores/003/396/869/products/173273583367477359b0636-04b3ed4eaa65d7610b17647696876857-100-0.webp",
+      "https://acdn-us.mitiendanube.com/stores/003/396/869/products/17328193866748b9ba2527a-c134530ff73038aa5c17647697646114-480-0.webp",
   },
   {
     name: "Voucher SORTEIO IPHONE",
@@ -25,13 +25,13 @@ const DEMO_ORDER = [
       "https://acdn-us.mitiendanube.com/stores/003/396/869/products/voucher_iphone17_1mb-c5da71d81a59bd5e3a17845683635916-100-0.webp",
   },
   {
-    name: "Jogo 18 Peças - Sr. da Pedra",
+    name: "Panela de Pedra - 4 Litros",
     qty: 1,
-    price: 467.5,
-    compare: 2499,
-    discount: 81,
+    price: 285.35,
+    compare: 439,
+    discount: 35,
     image:
-      "https://acdn-us.mitiendanube.com/stores/003/396/869/products/1732735824674773502df88-c5b88fb3c8d79165cd17647696482519-100-0.webp",
+      "https://acdn-us.mitiendanube.com/stores/003/396/869/products/1-48855aad8a76bcc16517835592532750-480-0.webp",
   },
 ];
 

@@ -91,11 +91,11 @@ function renderProducts() {
     .map(
       (p, index) => `
       <article class="product-card ${p.outOfStock ? "out" : ""}" style="animation: fadeUp .4s ease both; animation-delay: ${Math.min(index, 8) * 40}ms">
-        <a class="product-media" href="${p.url}" target="_blank" rel="noopener">
+        <div class="product-media">
           <img src="${p.image}" alt="${p.name}" loading="lazy" />
-        </a>
+        </div>
         <div class="product-info">
-          <a class="product-name" href="${p.url}" target="_blank" rel="noopener">${p.name}</a>
+          <div class="product-name">${p.name}</div>
           <div class="price-row">
             ${p.compare && p.compare !== p.price ? `<span class="compare">${p.compare}</span>` : ""}
             <span class="price">${p.price}</span>

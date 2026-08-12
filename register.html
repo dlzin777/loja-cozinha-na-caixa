@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Criar conta | Loja Cozinha na Caixa</title>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/auth.css" />
+</head>
+<body class="auth-page">
+  <div class="auth-wrap">
+    <div class="auth-card">
+      <a class="auth-logo" href="index.html">
+        <img src="https://acdn-us.mitiendanube.com/stores/003/396/869/themes/common/logo-1989275113954782747-1783332256-3cacd3a95b970b7bfe093e36247da3831783332256.png?0" alt="Loja Cozinha na Caixa" />
+      </a>
+      <h1>Criar conta</h1>
+      <p class="subtitle">Salve seus dados e acompanhe seus pedidos</p>
+      <div id="authMsg" class="auth-msg"></div>
+      <form id="registerForm">
+        <label class="field">
+          <span>Nome completo</span>
+          <input type="text" id="name" required autocomplete="name" placeholder="Seu nome" />
+        </label>
+        <label class="field">
+          <span>E-mail</span>
+          <input type="email" id="email" required autocomplete="email" placeholder="seu@email.com" />
+        </label>
+        <label class="field">
+          <span>Senha</span>
+          <input type="password" id="password" required minlength="8" autocomplete="new-password" placeholder="Mínimo 8 caracteres, letras e números" />
+        </label>
+        <button class="btn-auth" type="submit">Criar conta</button>
+      </form>
+      <p class="auth-switch">
+        Já tem conta?
+        <a id="loginLink" href="login.html">Entrar</a>
+      </p>
+    </div>
+  </div>
+  <script src="js/auth.js"></script>
+  <script>
+    const next = new URLSearchParams(location.search).get("next");
+    if (next) {
+      document.getElementById("loginLink").href = `login.html?next=${encodeURIComponent(next)}`;
+    }
+  </script>
+</body>
+</html>

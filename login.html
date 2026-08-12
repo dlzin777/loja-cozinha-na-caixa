@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Entrar | Loja Cozinha na Caixa</title>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/auth.css" />
+</head>
+<body class="auth-page">
+  <div class="auth-wrap">
+    <div class="auth-card">
+      <a class="auth-logo" href="index.html">
+        <img src="https://acdn-us.mitiendanube.com/stores/003/396/869/themes/common/logo-1989275113954782747-1783332256-3cacd3a95b970b7bfe093e36247da3831783332256.png?0" alt="Loja Cozinha na Caixa" />
+      </a>
+      <h1>Entrar</h1>
+      <p class="subtitle">Acesse sua conta para finalizar a compra</p>
+      <div id="authMsg" class="auth-msg"></div>
+      <form id="loginForm">
+        <label class="field">
+          <span>E-mail</span>
+          <input type="email" id="email" required autocomplete="email" placeholder="seu@email.com" />
+        </label>
+        <label class="field">
+          <span>Senha</span>
+          <input type="password" id="password" required minlength="8" autocomplete="current-password" placeholder="••••••••" />
+        </label>
+        <button class="btn-auth" type="submit">Entrar</button>
+      </form>
+      <p class="auth-switch">
+        Não tem conta?
+        <a id="registerLink" href="register.html">Criar conta</a>
+      </p>
+    </div>
+  </div>
+  <script src="js/auth.js"></script>
+  <script>
+    const next = new URLSearchParams(location.search).get("next");
+    if (next) {
+      document.getElementById("registerLink").href = `register.html?next=${encodeURIComponent(next)}`;
+    }
+  </script>
+</body>
+</html>

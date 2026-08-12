@@ -1,0 +1,12 @@
+.env
+data/
+__pycache__/
+*.pyc
+.venv/
+venv/
+source-raw.html
+original-clone.html
+checkout-source.html
+checkout-next-source.html
+checkout-data.json
+*.db

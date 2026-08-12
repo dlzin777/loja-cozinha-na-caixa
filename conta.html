@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Minha conta | Loja Cozinha na Caixa</title>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/auth.css" />
+</head>
+<body class="account-page">
+  <header class="account-header">
+    <a href="index.html">
+      <img src="https://acdn-us.mitiendanube.com/stores/003/396/869/themes/common/logo-1989275113954782747-1783332256-3cacd3a95b970b7bfe093e36247da3831783332256.png?0" alt="Loja" />
+    </a>
+    <div style="display:flex;gap:14px;align-items:center">
+      <a href="index.html">Loja</a>
+      <a href="checkout.html">Checkout</a>
+      <a href="#" id="logoutBtn">Sair</a>
+    </div>
+  </header>
+
+  <main class="account-main">
+    <section class="account-box">
+      <h2>Meus dados</h2>
+      <div id="profileMsg" class="auth-msg"></div>
+      <form id="profileForm">
+        <div class="grid-2">
+          <label class="field"><span>Nome</span><input id="name" required /></label>
+          <label class="field"><span>E-mail</span><input id="email" disabled /></label>
+          <label class="field"><span>Telefone</span><input id="phone" /></label>
+          <label class="field"><span>CEP</span><input id="zipcode" /></label>
+          <label class="field"><span>Endereço</span><input id="address" /></label>
+          <label class="field"><span>Número</span><input id="number" /></label>
+          <label class="field"><span>Complemento</span><input id="complement" /></label>
+          <label class="field"><span>Bairro</span><input id="locality" /></label>
+          <label class="field"><span>Cidade</span><input id="city" /></label>
+          <label class="field"><span>Estado</span><input id="state" /></label>
+        </div>
+        <button class="btn-save" type="submit">Salvar dados</button>
+      </form>
+    </section>
+
+    <section class="account-box">
+      <h2>Meus pedidos</h2>
+      <div id="ordersList" class="muted">Carregando...</div>
+    </section>
+  </main>
+
+  <script src="js/auth.js"></script>
+  <script>
+    const money = (v) => Number(v).toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
+
+    async function boot() {
+      const user = await Auth.getMe();
+      if (!user) {
+        location.href = "login.html?next=conta.html";
+        return;
+      }
+
+      for (const key of ["name","email","phone","zipcode","address","number","complement","locality","city","state"]) {
+        const el = document.getElementById(key);
+        if (el) el.value = user[key] || "";
+      }
+
+      document.getElementById("profileForm").addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const body = {};
+        for (const key of ["name","phone","zipcode","address","number","complement","locality","city","state"]) {
+          body[key] = document.getElementById(key).value.trim();
+        }
+        const { res, data } = await Auth.api("/api/profile", {
+          method: "PUT",
+          body: JSON.stringify(body),
+        });
+        const msg = document.getElementById("profileMsg");
+        if (!res.ok) {
+          msg.textContent = data.error || "Erro ao salvar";
+          msg.className = "auth-msg show err";
+          return;
+        }
+        msg.textContent = "Dados salvos no banco!";
+        msg.className = "auth-msg show ok";
+      });
+
+      document.getElementById("logoutBtn").addEventListener("click", async (e) => {
+        e.preventDefault();
+        await Auth.api("/api/logout", { method: "POST", body: "{}" });
+        location.href = "index.html";
+      });
+
+      const { res, data } = await Auth.api("/api/orders");
+      const box = document.getElementById("ordersList");
+      if (!res.ok || !data.orders?.length) {
+        box.textContent = "Nenhum pedido ainda.";
+        return;
+      }
+      box.innerHTML = data.orders.map((o) => `
+        <div class="order-item">
+          <strong>${o.code}</strong> · ${money(o.total)}
+          <div class="muted">${o.status} · ${new Date(o.created_at).toLocaleString("pt-BR")}</div>
+          <div class="muted">${o.items.map((i) => i.name).join(", ")}</div>
+        </div>
+      `).join("");
+    }
+
+    boot();
+  </script>
+</body>
+</html>

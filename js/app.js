@@ -103,7 +103,7 @@ function renderProducts() {
           </div>
           <div class="installments">${p.installments || 15} x de ${p.installmentPrice}</div>
           <div class="pix-price">${p.pix} com Pix</div>
-          <button class="btn-buy" data-url="${p.url}" ${p.outOfStock ? "disabled" : ""}>
+          <button class="btn-buy" type="button" data-product-url="${p.url}" ${p.outOfStock ? "disabled" : ""}>
             ${p.outOfStock ? "Esgotado" : "Adicionar"}
           </button>
         </div>
@@ -194,10 +194,15 @@ async function init() {
   els.sort?.addEventListener("change", renderProducts);
 
   els.grid?.addEventListener("click", (e) => {
+    // Nunca navega para página externa do produto
+    const anchor = e.target.closest("a");
+    if (anchor && els.grid.contains(anchor)) {
+      e.preventDefault();
+    }
     const btn = e.target.closest(".btn-buy");
     if (!btn || btn.disabled) return;
     e.preventDefault();
-    addToCart(btn.dataset.url);
+    addToCart(btn.dataset.productUrl);
   });
 
   els.cartBody.addEventListener("click", (e) => {

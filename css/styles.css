@@ -361,6 +361,7 @@ a.account-link {
   background: #f6f6f4;
   border-radius: var(--radius);
   overflow: hidden;
+  pointer-events: none;
 }
 
 .product-media img {

@@ -47,10 +47,10 @@
         <h2>Dados de contato</h2>
         <label class="field">
           <span>E-mail</span>
-          <input type="email" id="email" placeholder="seu@email.com" required autocomplete="email" value="dsadas@gmail.com" />
+          <input type="email" id="email" placeholder="seu@email.com" required autocomplete="email" />
         </label>
         <label class="check">
-          <input type="checkbox" id="marketing" checked />
+          <input type="checkbox" id="marketing" />
           <span>Receber ofertas e novidades por e-mail</span>
         </label>
 
@@ -66,7 +66,7 @@
         </label>
         <label class="field">
           <span>CEP</span>
-          <input type="text" id="zipcode" inputmode="numeric" placeholder="00000-000" maxlength="9" value="67033-460" />
+          <input type="text" id="zipcode" inputmode="numeric" placeholder="00000-000" maxlength="9" autocomplete="postal-code" />
         </label>
 
         <div class="address-block hidden" id="addressBlock">
@@ -87,36 +87,36 @@
             </label>
             <label class="field">
               <span>CPF</span>
-              <input type="text" id="cpf" placeholder="000.000.000-00" inputmode="numeric" required />
+              <input type="text" id="cpf" placeholder="000.000.000-00" inputmode="numeric" required autocomplete="off" />
             </label>
           </div>
           <label class="field">
             <span>Endereço</span>
-            <input type="text" id="address" value="Travessa C" autocomplete="street-address" />
+            <input type="text" id="address" placeholder="Rua, avenida..." autocomplete="street-address" />
           </label>
           <div class="field-row">
             <label class="field">
               <span>Número</span>
-              <input type="text" id="number" value="333" />
+              <input type="text" id="number" placeholder="Nº" autocomplete="off" />
             </label>
             <label class="field">
               <span>Complemento</span>
-              <input type="text" id="complement" value="casa" />
+              <input type="text" id="complement" placeholder="Apto, casa..." autocomplete="off" />
             </label>
           </div>
           <div class="field-row">
             <label class="field">
               <span>Bairro</span>
-              <input type="text" id="locality" value="Águas Brancas" />
+              <input type="text" id="locality" placeholder="Bairro" autocomplete="off" />
             </label>
             <label class="field">
               <span>Cidade</span>
-              <input type="text" id="city" value="Ananindeua" />
+              <input type="text" id="city" placeholder="Cidade" autocomplete="address-level2" />
             </label>
           </div>
           <label class="field">
             <span>Estado</span>
-            <input type="text" id="state" value="Pará" />
+            <input type="text" id="state" placeholder="Estado" autocomplete="address-level1" />
           </label>
 
           <h3 class="shipping-title">Meios de envio</h3>
@@ -157,16 +157,16 @@
 
         <div class="review-card">
           <div class="review-body">
-            <strong id="reviewEmail">dsadas@gmail.com</strong>
+            <strong id="reviewEmail">—</strong>
           </div>
           <button type="button" class="link-btn review-edit" data-back="delivery">Alterar</button>
         </div>
 
         <div class="review-card">
           <div class="review-body">
-            <div id="reviewAddressLine">Travessa C 333, casa</div>
-            <div id="reviewCepLine">CEP 67033-460 - Águas Brancas</div>
-            <div id="reviewCityLine">Ananindeua, Pará</div>
+            <div id="reviewAddressLine">—</div>
+            <div id="reviewCepLine">—</div>
+            <div id="reviewCityLine">—</div>
           </div>
           <button type="button" class="link-btn review-edit" data-back="delivery">Alterar</button>
         </div>

@@ -259,7 +259,11 @@ function fillFromUser(user) {
     if (first && !first.value) first.value = parts[0] || "";
     if (last && !last.value) last.value = parts.slice(1).join(" ");
   }
-  document.getElementById("addressBlock").classList.remove("hidden");
+  // Só abre o bloco se o usuário já tiver CEP/endereço salvos na própria conta
+  const hasAddress = Boolean(user.zipcode || user.address);
+  if (hasAddress) {
+    document.getElementById("addressBlock").classList.remove("hidden");
+  }
 }
 
 function profilePayload() {
@@ -493,13 +497,30 @@ async function init() {
   loadItems();
   fillFromUser(user);
   renderSummary();
+  // Formulário vazio para o cliente preencher (só preenche dados da própria conta)
   document.getElementById("addressBlock").classList.remove("hidden");
-
-  const params = new URLSearchParams(location.search);
-  if (params.get("step") === "payment") setStep("payment");
 
   document.getElementById("zipcode").addEventListener("input", (e) => {
     e.target.value = formatCep(e.target.value);
+  });
+  document.getElementById("zipcode").addEventListener("blur", async () => {
+    const zip = onlyDigits(document.getElementById("zipcode").value);
+    if (zip.length !== 8) return;
+    try {
+      const res = await fetch(`https://viacep.com.br/ws/${zip}/json/`);
+      const data = await res.json();
+      if (data.erro) return;
+      const setIfEmpty = (id, val) => {
+        const el = document.getElementById(id);
+        if (el && !el.value && val) el.value = val;
+      };
+      setIfEmpty("address", data.logradouro);
+      setIfEmpty("locality", data.bairro);
+      setIfEmpty("city", data.localidade);
+      setIfEmpty("state", data.uf);
+    } catch {
+      /* ignore */
+    }
   });
   document.getElementById("cpf").addEventListener("input", (e) => {
     e.target.value = formatCpf(e.target.value);
@@ -507,6 +528,9 @@ async function init() {
   document.getElementById("phone").addEventListener("input", (e) => {
     e.target.value = formatPhone(e.target.value);
   });
+
+  const params = new URLSearchParams(location.search);
+  if (params.get("step") === "payment") setStep("payment");
 
   document.querySelectorAll('input[name="shipping"]').forEach((el) => {
     el.addEventListener("change", () => {
